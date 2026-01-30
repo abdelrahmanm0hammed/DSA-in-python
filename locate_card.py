@@ -5,6 +5,13 @@
 #4-if not, increment the value of position by 1, and repeat steps 2 to 4 till we reach the last position
 #5- if the number was not found, return -1
 
+from jovian.pythondsa import evaluate_test_case
+test = {
+    'input':{'cards':[13, 11, 10, 7, 4, 3, 1, 0],
+             'query': 7},
+             'output':3
+}
+
 def locate_card(cards, query):
     position =0
     while position <len(cards):
@@ -13,4 +20,4 @@ def locate_card(cards, query):
         else:
             position +=1
     return -1
-print(locate_card([4,3,2,1],4))
+evaluate_test_case(locate_card, test)
