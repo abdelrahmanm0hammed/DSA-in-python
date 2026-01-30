@@ -6,4 +6,11 @@
 #5- if the number was not found, return -1
 
 def locate_card(cards, query):
-    pass
+    position =0
+    while position <len(cards):
+        if cards[position] == query:
+            return position
+        else:
+            position +=1
+    return -1
+print(locate_card([4,3,2,1],4))
