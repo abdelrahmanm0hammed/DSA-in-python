@@ -44,7 +44,7 @@ def locate_card(cards, query):
     while lo <= hi:
         mid = (lo+hi)// 2
         result = test_location(cards, query, mid)
-        print("lo:", lo, ", hi:", hi, ", mid:", mid, ", mid_number:", mid_number)
+        
 
         if result == 'found':
             return mid
