@@ -5,19 +5,40 @@
 #4-if not, increment the value of position by 1, and repeat steps 2 to 4 till we reach the last position
 #5- if the number was not found, return -1
 
-from jovian.pythondsa import evaluate_test_case
-test = {
-    'input':{'cards':[13, 11, 10, 7, 4, 3, 1, 0],
-             'query': 7},
-             'output':3
-}
+#linear search solution 
+
+# from jovian.pythondsa import evaluate_test_case
+# test = {
+#     'input':{'cards':[13, 11, 10, 7, 4, 3, 1, 0],
+#              'query': 7},
+#              'output':3
+# }
+
+# def locate_card(cards, query):
+#     position =0
+#     while position <len(cards):
+#         if cards[position] == query:
+#             return position
+#         else:
+#             position +=1
+#     return -1
+# evaluate_test_case(locate_card, test)
+
+#Binary search solution
 
 def locate_card(cards, query):
-    position =0
-    while position <len(cards):
-        if cards[position] == query:
-            return position
-        else:
-            position +=1
+    lo, hi = 0, len(cards) - 1
+    while lo <= hi:
+        mid = (lo+hi)// 2
+        mid_number = cards[mid]
+        print("lo:", lo, ", hi:", hi, ", mid:", mid, ", mid_number:", mid_number)
+
+        if mid_number == query:
+            return mid
+        elif mid_number < query:
+            hi = mid -1
+        elif mid_number >query:
+            lo = mid +1
+        
     return -1
-evaluate_test_case(locate_card, test)
+print(locate_card([8, 7, 4, 3, 2, 1, 0], 1))
