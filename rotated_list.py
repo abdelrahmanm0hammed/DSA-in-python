@@ -31,17 +31,20 @@ def count_rotations_binary(nums):
         
     else:
 
-        while lo <= hi and hi>=2:
+        while lo <= hi :
             mid = (lo + hi) // 2
-            if nums[mid] < nums[mid -1] and (mid -1 >0):
+            if nums[mid] < nums[mid -1] and (mid -1 >=0):
                 return mid
             elif nums[mid] > nums[hi]:
                 lo = mid +1
                 
             elif nums[mid] < nums[hi]:
-                hi = mid-1
+                if mid == 1:
+                    return 0
+                else:
+                    hi = mid-1
                 
         return 0
-print(count_rotations_binary([2,3,4,]))
+print(count_rotations_binary([3,4,5,6,7,8,9,10,1,2]))
 
 
