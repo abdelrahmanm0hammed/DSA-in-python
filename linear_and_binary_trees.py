@@ -128,3 +128,9 @@ print(database.list_all())
 # 2.Find:O(N)
 # 3.Update:O(N)
 # 4.List:O(1)
+import time
+start_time = time.time()
+for i in range(100000000):
+    j = i*i
+end_time = time.time()
+print(f"time taken: {end_time - start_time:.4f} seconds")
