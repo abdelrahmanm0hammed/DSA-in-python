@@ -128,9 +128,27 @@ print(database.list_all())
 # 2.Find:O(N)
 # 3.Update:O(N)
 # 4.List:O(1)
-import time
-start_time = time.time()
-for i in range(100000000):
-    j = i*i
-end_time = time.time()
-print(f"time taken: {end_time - start_time:.4f} seconds")
+# import time
+# start_time = time.time()
+# for i in range(100000000):
+#     j = i*i
+# end_time = time.time()
+# print(f"time taken: {end_time - start_time:.4f} seconds")
+
+#Here's a simple class representing a node within a binary tree
+
+class TreeNode:
+    def __init__(self, key):
+        self.key = key
+        self.left = None
+        self.right = None
+node0 = TreeNode(3)
+node1 = TreeNode(4)
+node2 = TreeNode(5)
+
+node0.left = node1
+node0.right = node2
+
+tree = node0
+print(tree.key, tree.left.key, tree.right.key)
+    
