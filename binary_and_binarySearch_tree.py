@@ -113,11 +113,11 @@ database.insert(aakash)
 database.insert(siddhant)
 
 user = database.find('siddhant')
-print(user)
+# print(user)
 database.update(User(username='siddhant',name='Siddhant U',email='siddhantu@example.com'))
 user = database.find('siddhant')
-print(user)
-print(database.list_all())
+# print(user)
+# print(database.list_all())
 
 # 5-Analyze the algorithms complexity and identify inefficiencies
 #the operations insert, find, update involves iterating over a list of users, in the worst case
@@ -142,13 +142,44 @@ class TreeNode:
         self.key = key
         self.left = None
         self.right = None
-node0 = TreeNode(3)
-node1 = TreeNode(4)
-node2 = TreeNode(5)
+    def __str__(self):
+        return f"{self.key}"
+# node0 = TreeNode(1)
+# node1 = TreeNode(3)
+# node2 = TreeNode(2)
+# node3 = TreeNode(5)
+# node4 = TreeNode(3)
+# node5 = TreeNode(4)
+# node6 = TreeNode(7)
+# node7 = TreeNode(6)
+# node8 = TreeNode(8)
 
-node0.left = node1
-node0.right = node2
+# #connections
+# node2.left = node1
+# node1.left = node0
+# node2.right = node3
+# node3.left = node4
+# node4.right = node5
+# node3.right = node6 
+# node6.left = node7
+# node6.right = node8
+# print(node2.left.left, node2.right.right.right)
 
-tree = node0
-print(tree.key, tree.left.key, tree.right.key)
+def parse_tuple(data):
+    if isinstance(data, tuple) and len(data) == 3:
+        node = TreeNode(data[1]) 
+        # print(node)       
+        node.left = parse_tuple(data[0])
+        node.right = parse_tuple(data[2])
+        
+    elif data is None:
+        node = None
+    else:
+        node = TreeNode(data)
+        # print(node)
     
+    return node
+tree_tuple = ((1, 3, None), 2, ((None, 3, 4), 5, (6, 7, 8)))
+
+tree2 = parse_tuple(tree_tuple)
+print(tree2.key, tree2.left.left.key, tree2.right.right.right.key)
