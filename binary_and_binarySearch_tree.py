@@ -182,4 +182,14 @@ def parse_tuple(data):
 tree_tuple = ((1, 3, None), 2, ((None, 3, 4), 5, (6, 7, 8)))
 
 tree2 = parse_tuple(tree_tuple)
-print(tree2.key, tree2.left.left.key, tree2.right.right.right.key)
+print(tree2)
+
+#Inorder Traversal
+
+def traversal_in_order(node):
+   
+    if node is None:
+        return [] 
+    return (traversal_in_order(node.left) + [node.key] + 
+        traversal_in_order(node.right))
+
