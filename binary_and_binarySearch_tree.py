@@ -242,3 +242,12 @@ def insert(node, key, value):
         node.right.parent = node
     return node 
 
+def find(node, key):
+    if node is None:
+        return None
+    if key == node.key:
+        return node
+    if key < node.key:
+        return find(node.left, key)
+    if key > node.key:
+        return find(node.right, key)
