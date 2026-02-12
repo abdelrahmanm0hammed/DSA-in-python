@@ -251,3 +251,10 @@ def find(node, key):
         return find(node.left, key)
     if key > node.key:
         return find(node.right, key)
+    
+
+
+def update(node, key, value):
+    target = find(node, key)
+    if target is not None:
+        target.value = value
