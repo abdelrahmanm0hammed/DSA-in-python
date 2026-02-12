@@ -221,3 +221,13 @@ def is_bst(node):
     max_key = max(remove_none([max_l, node.key, max_r]))
 
     return is_bst_node, min_key, max_key
+
+#to represent the value of node 
+class BSTNode():
+    def __init__(self, key, value= None):
+        self.key = key
+        self.value = value
+        self.left = None
+        self.right = None
+        self.parent = None
+
