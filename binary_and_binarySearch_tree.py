@@ -289,3 +289,7 @@ def make_balanced_bst(data, lo=0, hi=None, parent=None):
 
     return root
 
+# function to balance unbalanced binary search tree
+def balance_bst(node):
+    return make_balanced_bst(list_all(node))
+
