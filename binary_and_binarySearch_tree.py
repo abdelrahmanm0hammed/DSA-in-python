@@ -259,10 +259,15 @@ def update(node, key, value):
     if target is not None:
         target.value = value
 
+
+
 def list_all(node):
     if node is  None:
         return []
     return list_all(node.left) + [(node.key, node.value)] + list_all(node.right)
+
+
+
 def is_balanced(node):
     if node is None:
         return True, 0
@@ -293,3 +298,24 @@ def make_balanced_bst(data, lo=0, hi=None, parent=None):
 def balance_bst(node):
     return make_balanced_bst(list_all(node))
 
+class TreeMap():
+    def __init__(self):
+        self.root = None
+
+    def __setitem__(self, key, value):
+        node = find(self.root, key)
+        if not node:
+            self.root = insert(self.root, key, value)
+            self.root = balance_bst(self.root)
+        else:
+            update(self.root, key, value)
+    
+    def __getitem__(self, key):
+        node = find(self.root, key)
+        return node.value if node else None
+    
+    def __iter__(self):
+        return(x for x in list_all(self.root))
+    
+    def __len__(self):
+        return tree_size(self.root)
