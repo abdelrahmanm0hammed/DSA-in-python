@@ -53,5 +53,4 @@ def get_valid_index(data_list, key):
         idx += 1
 
         if idx == len(data_list):
-            idx = 0:
-            
+            idx = 0
