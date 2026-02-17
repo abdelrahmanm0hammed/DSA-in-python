@@ -38,3 +38,20 @@ class BasicHashTable:
     
     def list_all(self):
         return [kv[0] for kv in self.data_list if kv is not None]
+    
+def get_valid_index(data_list, key):
+    idx = get_index(data_list, key)
+
+    while True:
+        kv = data_list[idx]
+
+        if kv is None:
+            return idx
+        k, v = kv
+        if k == key:
+            return idx
+        idx += 1
+
+        if idx == len(data_list):
+            idx = 0:
+            
