@@ -54,3 +54,23 @@ def get_valid_index(data_list, key):
 
         if idx == len(data_list):
             idx = 0
+
+class ProbingHashTable:
+    def __init__(self, max_size=MAX_HASH_TABLE_SIZE):
+        self.data_list = [None] * max_size
+
+    def insert(self, key, value):
+        idx = get_valid_index(self.data_list, key)
+
+        self.data_list[idx] = key, value
+
+    def find(self, key):
+        idx = get_valid_index(self.data_list, key)
+
+    def update(self, key, value):
+        idx = get_valid_index(self.data_list, key)
+        self.data_list[idx] = key, value
+
+    def list_all(self):
+        return [kv[0] for kv in self.data_list if kv is not None]
+    
