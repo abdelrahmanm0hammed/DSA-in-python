@@ -57,3 +57,5 @@ def merge_sort(nums):
 
     # Combine the results of the two halves 
     sorted_nums = merge(left_sorted, right_sorted)
+
+    return sorted_nums
