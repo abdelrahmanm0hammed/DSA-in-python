@@ -101,3 +101,32 @@ def quicksort(nums, start=0, end=None):
         quicksort(nums, pivot+1, end)
 
     return nums
+
+
+## Custom Comparison function
+# Question 1: You're working on a new feature on Jovian called
+# "Top Notebooks of the Week". Write a function to sort a list of notebooks in 
+# decreasing order of likes.
+# Keep in mind that up to millions of notebooks can be created every week, so your
+# function needs to be as efficient as possible
+
+# First, we need to sort objects, not just numbers. Also, we want to sort them in the
+# descending order of likes. To achieve this, all we need is a custom comparison
+# function to compare two notebooks.
+
+class Notebook:
+    def __init__(self, title, username, likes):
+        self.title, self.username, self.likes = title, username, likes
+
+    def __repr__(self):
+        return 'Notebook<"{}/{}", {} likes>'.format(self.username, self.title, self.likes)
+    
+def compare_likes (nb1, nb2):
+    if nb1.likes > nb2.likes:
+        return 'lesser'
+    elif nb1.likes == nb2.likes:
+        return 'equal'
+    elif nb1.likes < nb2.likes:
+        return 'greater'
+    # Note that we say nb1 is lesser than nb2 if it has higher likes, we want
+    # to sort the notebooks in decreasing order of likes
